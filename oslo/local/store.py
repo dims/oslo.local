@@ -32,14 +32,3 @@ class WeakLocal(threading.local):
     def __setattr__(self, attr, value):
         value = weakref.ref(value)
         return super(WeakLocal, self).__setattr__(attr, value)
-
-
-# NOTE(mikal): the name "store" should be deprecated in the future
-store = WeakLocal()
-
-# A "weak" store uses weak references and allows an object to fall out of scope
-# when it falls out of scope in the code that uses the thread local storage. A
-# "strong" store will hold a reference to the object so that it never falls out
-# of scope.
-weak_store = WeakLocal()
-strong_store = threading.local()
