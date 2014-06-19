@@ -22,4 +22,4 @@ store = WeakLocal()
 # "strong" store will hold a reference to the object so that it never falls out
 # of scope.
 weak_store = WeakLocal()
-strong_store = threading.local()
+strong_store = StrongLocal()

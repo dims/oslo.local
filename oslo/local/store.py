@@ -32,3 +32,7 @@ class WeakLocal(threading.local):
     def __setattr__(self, attr, value):
         value = weakref.ref(value)
         return super(WeakLocal, self).__setattr__(attr, value)
+
+
+class StrongLocal(threading.local):
+    pass
